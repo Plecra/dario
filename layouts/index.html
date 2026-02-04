@@ -24,7 +24,17 @@
             {{- end }}
         {{- end }}
     {{- end }}
-
+    {{ if gt (len .Site.Taxonomies) 0}}
+    <nav class="taxonomy-nav">
+        site index by 
+        {{ range $taxonomy, $terms := .Site.Taxonomies }}
+            {{ if gt (len $terms) 0 }}
+                {{ $taxonomyPage := $.Site.GetPage (printf "/%s" $taxonomy) }}
+                <a href="{{ $taxonomyPage.RelPermalink }}">{{ $taxonomyPage.Data.Singular | $.RenderString | plainify }}</a>
+            {{ end }}
+        {{ end }}
+    </nav>
+    {{ end }}
     {{- range sort (where .Site.Sections "Section" "in" .Site.MainSections) "Weight" }}
     <section>
     <h3><a href="{{ .Permalink }}">{{ .Title | .RenderString }}</a></h3>
