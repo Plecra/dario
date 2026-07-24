@@ -168,6 +168,9 @@ code {
   font-family: menlo, Consolas, ui-monospace, monospace;
 }
 
+pre {
+    background: transparent !important;
+}
 pre code {
   display: block;
   margin: auto 0;
