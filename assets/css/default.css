@@ -225,22 +225,32 @@ p.intro {
 
 /* Layout */
 .content-wrapper,
-header > div {
-  max-width: var(--content-max-width);
-  margin-left: auto;
-  margin-right: auto;
+header  {
+  display: grid;
+  grid-template-columns:
+    1fr
+    min(var(--content-max-width), 100%)
+    1fr;
+
   padding: var(--content-padding);
   box-sizing: border-box;
 }
+.content-wrapper > *,
+header > * {
+  grid-column: 2;
+}
+
 
 @media (min-width: 1076px) {
   body.has-toc .content-wrapper,
   body.has-toc header > div {
-    max-width: var(--content-max-width);
+    display: grid;
+    grid-template-columns:
+      1fr
+      min(var(--content-max-width), 100%)
+      1fr;
     padding-left: 20px;
     padding-right: 20px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .toc-container {
@@ -462,7 +472,11 @@ hr:after {
 @media (min-width: 1400px) {
   .content-wrapper,
   header > div {
-    max-width: var(--content-max-width);
+  display: grid;
+  grid-template-columns:
+    1fr
+    min(var(--content-max-width), 100%)
+    1fr;
   }
 }
 
