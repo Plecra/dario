@@ -246,7 +246,7 @@ header > * {
 
 @media (min-width: 1076px) {
   body.has-toc .content-wrapper,
-  body.has-toc header > div {
+  body.has-toc header {
     display: grid;
     grid-template-columns:
       1fr
@@ -474,7 +474,7 @@ hr:after {
 
 @media (min-width: 1400px) {
   .content-wrapper,
-  header > div {
+  header {
   display: grid;
   grid-template-columns:
     1fr
